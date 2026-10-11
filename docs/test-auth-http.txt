@@ -1,0 +1,43 @@
+PASS: Guest redirected to login
+PASS: Registration form has no role selector
+PASS: Session cookie protections
+PASS: Registration missing CSRF rejected
+PASS: Registration invalid CSRF rejected
+PASS: Server validation and array injection rejected
+PASS: Invalid registration writes no account
+PASS: Customer registered in real database
+PASS: Injected ADMIN role ignored
+PASS: Name surname phone persisted
+PASS: Password stored as verified hash
+PASS: Duplicate email rejected
+PASS: Login CSRF rejected
+PASS: Wrong password rejected
+PASS: Customer login redirects to own panel
+PASS: Login rotates session ID
+PASS: Customer panel displays own account
+PASS: Customer cannot access other roles
+PASS: GET logout forbidden
+PASS: Invalid logout CSRF preserves session
+PASS: Logout destroys authenticated session
+PASS: EMPLOYEE login succeeds
+PASS: EMPLOYEE own panel accessible
+PASS: EMPLOYEE denied customer
+PASS: EMPLOYEE denied admin
+PASS: Secure admin CLI creates hashed account
+PASS: ADMIN login succeeds
+PASS: ADMIN own panel accessible
+PASS: ADMIN denied customer
+PASS: ADMIN denied employee
+PASS: Role change takes effect without new login
+PASS: Disabled account loses existing session access
+PASS: Disabled account cannot log in
+PASS: Unknown login attempt 1
+PASS: Unknown login attempt 2
+PASS: Unknown login attempt 3
+PASS: Unknown login attempt 4
+PASS: Unknown login attempt 5
+PASS: Sixth attempt throttled with Retry-After
+PASS: New session does not bypass throttling
+PASS: Password never echoed in response
+PASS: Environment remains inaccessible
+42 HTTP authentication tests passed.

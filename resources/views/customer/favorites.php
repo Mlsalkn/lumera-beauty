@@ -1,0 +1,1 @@
+<?php require __DIR__.'/_start.php'; ?><section class="customer-card"><h2>Özenle seçtiğiniz hizmetler</h2><p class="muted">Favorinizden randevuya hızlıca başlayın.</p><?php $serviceRows=$favorites;$favoriteIds=array_map('intval',array_column($favorites,'id'));require __DIR__.'/_services.php'; ?></section><?php require __DIR__.'/_end.php'; ?>

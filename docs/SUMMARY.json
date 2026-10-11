@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-10",
+  "total_assertions": 577,
+  "groups": [
+    {
+      "group": "run",
+      "assertions": 32,
+      "passed": true
+    },
+    {
+      "group": "database",
+      "assertions": 69,
+      "passed": true
+    },
+    {
+      "group": "auth-http",
+      "assertions": 42,
+      "passed": true
+    },
+    {
+      "group": "admin-http",
+      "assertions": 101,
+      "passed": true
+    },
+    {
+      "group": "customer-http",
+      "assertions": 83,
+      "passed": true
+    },
+    {
+      "group": "employee-http",
+      "assertions": 101,
+      "passed": true
+    },
+    {
+      "group": "system-integration",
+      "assertions": 64,
+      "passed": true
+    },
+    {
+      "group": "delivery-http",
+      "assertions": 85,
+      "passed": true
+    }
+  ],
+  "php_lint_files": 137,
+  "php_lint_failures": 0,
+  "tables": 24,
+  "foreign_keys": 32,
+  "schema_contains_rows": false,
+  "responsive_checks": 9,
+  "horizontal_overflow": false,
+  "public_http_urls": 64,
+  "public_http_failures": 0,
+  "real_smtp_tested": false,
+  "live_admin_login_verified": false,
+  "admin_email_changed": true,
+  "admin_password_changed": false,
+  "sample_employees": 8,
+  "sample_services": 9,
+  "sample_assignments": 20
+}

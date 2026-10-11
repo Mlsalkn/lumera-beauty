@@ -1,0 +1,83 @@
+[
+  {
+    "page": "experts",
+    "width": 390,
+    "brokenImages": 0,
+    "document": 375,
+    "overflow": false,
+    "viewport": 390,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "services",
+    "width": 390,
+    "brokenImages": 0,
+    "document": 375,
+    "overflow": false,
+    "viewport": 390,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "contact",
+    "width": 390,
+    "brokenImages": 0,
+    "document": 375,
+    "overflow": false,
+    "viewport": 390,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "experts",
+    "width": 768,
+    "brokenImages": 0,
+    "document": 753,
+    "overflow": false,
+    "viewport": 768,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "services",
+    "width": 768,
+    "brokenImages": 0,
+    "document": 753,
+    "overflow": false,
+    "viewport": 768,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "contact",
+    "width": 768,
+    "brokenImages": 0,
+    "document": 753,
+    "overflow": false,
+    "viewport": 768,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "experts",
+    "width": 1440,
+    "brokenImages": 0,
+    "document": 1425,
+    "overflow": false,
+    "viewport": 1440,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "services",
+    "width": 1440,
+    "brokenImages": 0,
+    "document": 1425,
+    "overflow": false,
+    "viewport": 1440,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  },
+  {
+    "page": "contact",
+    "width": 1440,
+    "brokenImages": 0,
+    "document": 1425,
+    "overflow": false,
+    "viewport": 1440,
+    "imageCheck": "Tamamlanan görsel yüklemeleri; lazy görseller HTTP taramasında ayrıca doğrulandı"
+  }
+]

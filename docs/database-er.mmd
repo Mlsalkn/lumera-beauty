@@ -1,0 +1,242 @@
+erDiagram
+    appointment_cancellation_requests {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned appointment_id FK
+        bigint_20__unsigned employee_id FK
+        varchar_1000_ reason
+        enum__pending___approved___rejected__ status
+        bigint_20__unsigned reviewer_id FK
+        datetime reviewed_at
+        varchar_1000_ response
+        timestamp created_at
+    }
+    appointment_status_history {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned appointment_id FK
+        bigint_20__unsigned actor_id FK
+        varchar_30_ event
+        varchar_12_ old_status
+        varchar_12_ new_status
+        datetime old_start_at
+        datetime new_start_at
+        timestamp created_at
+    }
+    appointments {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned customer_id FK
+        bigint_20__unsigned employee_id FK
+        bigint_20__unsigned service_id FK
+        datetime start_at
+        datetime end_at
+        enum__pending___confirmed___completed___cancelled__ status
+        decimal_10_2_ service_price
+        timestamp created_at
+        text customer_note
+    }
+    audit_events {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned actor_id FK
+        varchar_80_ action
+        varchar_40_ target_type
+        bigint_20__unsigned target_id
+        enum__success___denied___failure__ outcome
+        datetime created_at
+    }
+    auth_tokens {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned user_id FK
+        enum__verify___reset__ purpose
+        char_64_ token_hash UK
+        varchar_190_ email_snapshot
+        datetime expires_at
+        datetime used_at
+        datetime created_at
+    }
+    customer_preferences {
+        bigint_20__unsigned customer_id PK,FK
+        tinyint_1_ appointment_notifications
+    }
+    email_change_requests {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned customer_id UK,FK
+        varchar_190_ old_email
+        varchar_190_ new_email
+        char_64_ token_hash UK
+        datetime expires_at
+        datetime created_at
+    }
+    employee_breaks {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned employee_id FK
+        tinyint_3__unsigned weekday
+        time start_time
+        time end_time
+        varchar_120_ reason
+        timestamp created_at
+    }
+    employee_leave_requests {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned employee_id FK
+        datetime start_at
+        datetime end_at
+        varchar_1000_ reason
+        enum__pending___approved___rejected__ status
+        bigint_20__unsigned reviewer_id FK
+        datetime reviewed_at
+        varchar_1000_ response
+        bigint_20__unsigned approved_leave_id FK
+        timestamp created_at
+    }
+    employee_leaves {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned employee_id FK
+        datetime start_at
+        datetime end_at
+        varchar_255_ reason
+        timestamp created_at
+    }
+    employee_permissions {
+        bigint_20__unsigned employee_id PK,FK
+        tinyint_1_ can_confirm
+        tinyint_1_ can_complete
+        tinyint_1_ can_request_cancel
+    }
+    employee_services {
+        bigint_20__unsigned employee_id PK,FK
+        bigint_20__unsigned service_id PK,FK
+    }
+    employees {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned user_id UK,FK
+        varchar_120_ title
+        text bio
+        varchar_255_ photo_path
+        tinyint_1_ is_active
+    }
+    favorites {
+        bigint_20__unsigned customer_id PK,FK
+        bigint_20__unsigned service_id PK,FK
+        timestamp created_at
+    }
+    mail_outbox {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned user_id FK
+        bigint_20__unsigned appointment_id FK
+        varchar_190_ dedupe_key UK
+        varchar_40_ event
+        mediumtext payload
+        enum__pending___sent___failed___skipped__ status
+        smallint_5__unsigned attempts
+        datetime next_attempt_at
+        datetime created_at
+        datetime sent_at
+        varchar_80_ last_error
+    }
+    notifications {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned customer_id FK
+        bigint_20__unsigned appointment_id FK
+        varchar_30_ event
+        varchar_500_ message
+        datetime read_at
+        timestamp created_at
+    }
+    reviews {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned appointment_id UK,FK
+        bigint_20__unsigned customer_id FK
+        tinyint_3__unsigned rating
+        text comment
+        tinyint_1_ is_visible
+        timestamp created_at
+    }
+    sample_content {
+        enum__service___employee__ entity_type PK
+        varchar_60_ seed_key PK
+        bigint_20__unsigned entity_id
+    }
+    services {
+        bigint_20__unsigned id PK
+        varchar_150_ name
+        text description
+        varchar_100_ category
+        smallint_5__unsigned duration_minutes
+        decimal_10_2_ price
+        tinyint_1_ is_active
+        varchar_255_ image_path
+    }
+    support_tickets {
+        bigint_20__unsigned id PK
+        char_24_ reference UK
+        bigint_20__unsigned user_id FK
+        varchar_120_ name
+        varchar_190_ email
+        varchar_160_ subject
+        text message
+        enum__open___in_progress___resolved__ status
+        datetime created_at
+        datetime updated_at
+    }
+    system_settings {
+        varchar_80_ setting_key PK
+        varchar_500_ setting_value
+        datetime updated_at
+    }
+    user_security {
+        bigint_20__unsigned user_id PK,FK
+        datetime email_verified_at
+    }
+    users {
+        bigint_20__unsigned id PK
+        varchar_120_ name
+        varchar_190_ email UK
+        varchar_255_ password_hash
+        varchar_25_ phone
+        enum__CUSTOMER___EMPLOYEE___ADMIN__ role
+        tinyint_1_ is_active
+        timestamp created_at
+        timestamp updated_at
+        varchar_60_ first_name
+        varchar_60_ last_name
+        varchar_255_ photo_path
+        int_10__unsigned auth_version
+    }
+    working_hours {
+        bigint_20__unsigned id PK
+        bigint_20__unsigned employee_id FK
+        tinyint_3__unsigned weekday
+        time start_time
+        time end_time
+    }
+    users ||--o{ appointments : customer_id
+    employees ||--o{ appointments : employee_id
+    services ||--o{ appointments : service_id
+    appointments ||--o{ appointment_cancellation_requests : appointment_id
+    employees ||--o{ appointment_cancellation_requests : employee_id
+    users |o--o{ appointment_cancellation_requests : reviewer_id
+    appointments ||--o{ appointment_status_history : appointment_id
+    users |o--o{ appointment_status_history : actor_id
+    users |o--o{ audit_events : actor_id
+    users ||--o{ auth_tokens : user_id
+    users ||--o| customer_preferences : customer_id
+    users ||--o| email_change_requests : customer_id
+    users ||--o| employees : user_id
+    employees ||--o{ employee_breaks : employee_id
+    employees ||--o{ employee_leaves : employee_id
+    employees ||--o{ employee_leave_requests : employee_id
+    users |o--o{ employee_leave_requests : reviewer_id
+    employee_leaves |o--o{ employee_leave_requests : approved_leave_id
+    employees ||--o| employee_permissions : employee_id
+    employees ||--o{ employee_services : employee_id
+    services ||--o{ employee_services : service_id
+    users ||--o{ favorites : customer_id
+    services ||--o{ favorites : service_id
+    users ||--o{ mail_outbox : user_id
+    appointments |o--o{ mail_outbox : appointment_id
+    users ||--o{ notifications : customer_id
+    appointments |o--o{ notifications : appointment_id
+    appointments ||--o| reviews : appointment_id
+    users ||--o{ reviews : customer_id
+    users |o--o{ support_tickets : user_id
+    users ||--o| user_security : user_id
+    employees ||--o{ working_hours : employee_id

@@ -1,0 +1,19 @@
+/.env
+/vendor/
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/sessions/*
+!/storage/sessions/.gitkeep
+/public/uploads/*
+!/public/uploads/.htaccess
+!/public/uploads/.gitkeep
+/tools/
+.DS_Store
+Thumbs.db
+/storage/rate_limits/
+
+# Private local settings and archives
+/.env.*
+!/.env.example
+*.zip
+*.sql.gz

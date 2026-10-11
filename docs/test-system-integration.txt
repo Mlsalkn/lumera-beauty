@@ -1,0 +1,65 @@
+PASS: Public security page forgot-password
+PASS: CSRF security forgot-password
+PASS: Public security page reset-password
+PASS: CSRF security reset-password
+PASS: Public security page verify-email
+PASS: CSRF security verify-email
+PASS: Public security page resend-verification
+PASS: CSRF security resend-verification
+PASS: Guest denied settings
+PASS: Forgot password accepted over HTTP
+PASS: Outbox encrypted token
+PASS: Only token digest stored
+PASS: No account enumeration response
+PASS: PHPMailer sends to loopback SMTP
+PASS: HTML and text SMTP message captured
+PASS: Delivered payload removed
+PASS: User session before reset
+PASS: Active session available
+PASS: Customer denied settings reads and writes
+PASS: Password reset over HTTP
+PASS: Password reset revokes old session
+PASS: New password hash verified
+PASS: Used token rejected
+PASS: Expired reset rejected
+PASS: Email verification over HTTP
+PASS: Email verification persisted
+PASS: Verification replay rejected
+PASS: Expired and consumed mail skipped
+PASS: New reset invalidates previous token
+PASS: Email change invalidates recovery token
+PASS: Critical request budget 0
+PASS: Critical request budget 1
+PASS: Critical request budget 2
+PASS: Critical request budget 3
+PASS: Critical request budget 4
+PASS: Critical throttling enforced
+PASS: Administrator signs in
+PASS: Settings omit credentials and key
+PASS: Settings CSRF
+PASS: Settings invalid input handled
+PASS: Settings save over HTTP
+PASS: Settings audit persisted
+PASS: SMTP disabled creates no recovery mail
+PASS: SMTP disabled worker safe
+PASS: Test transport blocks real recipient
+PASS: Queue duplicate key idempotent
+PASS: Queue remaining messages delivered
+PASS: Mail template escapes XSS
+PASS: No token referrer header
+PASS: Recovery HTTP throttle and retry header
+PASS: Employee SMTP fixture signs in
+PASS: Employee denied settings reads and writes
+PASS: New appointment queues customer and employee mail
+PASS: Reminder repeated job idempotent
+PASS: Cancellation queues both parties
+PASS: Leave decision queues employee mail
+PASS: Event SMTP delivery and cancelled reminder suppression
+PASS: SMTP failure retries without sensitive log
+PASS: SMTP recovery delivers pending message
+PASS: Registration SMTP integration over HTTP
+PASS: Registration verification queued
+PASS: Required verification blocks new unverified customer
+PASS: Verified customer admitted by policy
+PASS: All database rows preserved after test cleanup
+64 system integration tests passed.

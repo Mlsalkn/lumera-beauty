@@ -1,0 +1,86 @@
+PASS: Portable schema imports 24 tables into separate empty database
+PASS: Portable schema preserves all 32 foreign keys
+PASS: Export has zero user/service/appointment data
+PASS: Public route 
+PASS: Public route about
+PASS: Public route services
+PASS: Public route experts
+PASS: Public route contact
+PASS: Public route reviews
+PASS: Public route services/detail?id=1
+PASS: Missing public service is 404
+PASS: Array identifier safely rejected
+PASS: Customer registers and cannot select admin role
+PASS: All three roles sign in
+PASS: Other employee session signs in
+PASS: Customer selects service employee date and slot
+PASS: Customer confirms appointment
+PASS: Administrator sees customer booking
+PASS: Assigned employee sees customer notes
+PASS: Other employee cannot read assigned booking
+PASS: Repeated customer confirm cannot duplicate booking
+PASS: Admin cannot create overlapping booking
+PASS: Administrator confirms customer appointment
+PASS: Employee sees confirmation
+PASS: Customer requests date change
+PASS: Reschedule updates shared database and resets approval
+PASS: Customer cancels booking
+PASS: Cancellation reflected in worker and administrator pages
+PASS: Cancellation notifies customer and employee
+PASS: Customer review page and empty state
+PASS: Review CSRF enforced
+PASS: Cancelled booking cannot be reviewed
+PASS: Completed booking accepts customer review
+PASS: Review owner and moderation cannot be injected
+PASS: Review XSS escaped
+PASS: Unmoderated review not publicly visible
+PASS: Customer cannot publish own review
+PASS: Admin review CSRF enforced
+PASS: Approved review publicly escaped
+PASS: Public review masks customer full name
+PASS: Review edit is idempotent and re-enters moderation
+PASS: Employee cannot write customer reviews
+PASS: Invalid review leaves stored rating unchanged
+PASS: Admin module admin/services
+PASS: Admin module admin/employees
+PASS: Admin module admin/customers
+PASS: Admin module admin/calendar
+PASS: Admin module admin/reports
+PASS: Admin module admin/reviews
+PASS: Admin module admin/settings
+PASS: Admin module admin/operations
+PASS: Clean install creates nine services and eight fictional employees
+PASS: Sample seed idempotent without changing existing rows
+PASS: Sample registry tracks only seeded entities
+PASS: Twenty valid specialist-service assignments
+PASS: Eight staff working plans are connected
+PASS: Lunch breaks connect to availability
+PASS: Prices durations and service images configured
+PASS: Experts list shows fictional profiles and work schedules
+PASS: Services transparently display sample prices
+PASS: Seeded staff selectable in actual booking wizard
+PASS: Seeded expert accepts real booking preview
+PASS: Seeded service and employee create persisted appointment
+PASS: Support request requires CSRF
+PASS: Support email and screen available
+PASS: Customer submits support over real HTTP
+PASS: Support stored with authenticated owner
+PASS: Support success does not invent email delivery
+PASS: Customer and employee cannot read support requests
+PASS: Admin support displays ticket with escaped XSS
+PASS: Support status CSRF enforced
+PASS: Customer cannot change support status
+PASS: Admin resolves support request
+PASS: Support malformed filter rejected
+PASS: Support filtering operates on real stored status
+PASS: Invalid support input creates no ticket
+PASS: Support rate limiting enforced
+PASS: Admin email collision rejects update without changing account
+PASS: Existing administrator email update command works
+PASS: Admin email retains account id role and identical password hash
+PASS: New admin address is not silently verified
+PASS: New admin email signs in with unchanged test password
+PASS: SMTP disabled produces no external test mail
+PASS: Customer logout revokes panel access
+PASS: All existing production rows and administrator remain unchanged
+85 delivery scenario tests passed.

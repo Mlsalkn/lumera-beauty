@@ -1,0 +1,84 @@
+PASS: Guest denied customer
+PASS: Guest denied customer/book
+PASS: Guest denied customer/profile
+PASS: Guest denied customer/appointments
+PASS: Guest denied customer/favorites
+PASS: Guest denied customer/notifications
+PASS: Registration stores names and forces customer role
+PASS: Customer page renders customer
+PASS: Customer page renders customer/appointments?filter=all
+PASS: Customer page renders customer/favorites
+PASS: Customer page renders customer/notifications
+PASS: Customer page renders customer/profile
+PASS: Customer page renders customer/book
+PASS: Customer denied other role panels
+PASS: CSRF required book/preview
+PASS: CSRF required book/confirm
+PASS: CSRF required appointments/cancel
+PASS: CSRF required profile/save
+PASS: CSRF required profile/password
+PASS: CSRF required profile/email
+PASS: CSRF required email/verify
+PASS: CSRF required favorites/save
+PASS: CSRF required notifications/read
+PASS: Eligible active service employees loaded
+PASS: Catalog descriptions escaped
+PASS: Wizard step 2 renders actual availability
+PASS: Wizard step 3 renders actual availability
+PASS: Wizard step 4 renders actual availability
+PASS: Full service duration fits closing
+PASS: Leave blocks overlapping duration
+PASS: Past dates rejected
+PASS: Booking horizon enforced
+PASS: Selection generates server-side summary
+PASS: Summary uses authoritative price and confirmation nonce
+PASS: Booking confirmed over HTTP
+PASS: Booking owner price duration cannot be injected
+PASS: Appointment note escaped
+PASS: Created notification stored atomically
+PASS: Repeated confirmation does not duplicate booking
+PASS: Foreign appointment detail denied
+PASS: Foreign appointment cancellation denied
+PASS: Foreign reschedule denied
+PASS: Appointment listing scoped to owner
+PASS: Overlapping slot rejected
+PASS: Any eligible employee selects available worker
+PASS: Favorites idempotent and owner scoped
+PASS: Favorite quick booking renders
+PASS: Favorite removal persists
+PASS: Admin confirmation creates customer notification
+PASS: Reschedule summary created
+PASS: Reschedule preserves snapshot and requests approval
+PASS: Customer cancellation persists
+PASS: Cancellation releases slot
+PASS: Create confirm reschedule cancel audit history preserved
+PASS: Foreign notification denied
+PASS: Notification read status persists
+PASS: Profile ignores foreign id role and email injection
+PASS: Invalid profile leaves data unchanged
+PASS: Validated profile photo uploaded and served
+PASS: Executable profile upload rejected
+PASS: Notification preference suppresses notices but preserves audit
+PASS: Central cancellation deadline enforced
+PASS: Central reschedule deadline enforced
+PASS: Completed booking notification stored
+PASS: Completed booking cannot be cancelled
+PASS: Changed price invalidates stale summary
+PASS: Concurrent customer worker returns normally
+PASS: Concurrent customer worker returns normally
+PASS: Concurrent customer worker returns normally
+PASS: Concurrent customer confirmations create exactly one booking
+PASS: Upcoming bookings show nearest date first
+PASS: Password change requires current password
+PASS: Password change keeps current session and invalidates other sessions
+PASS: Disabled mail creates no fake verification or email change
+PASS: Verification stores only token hash and preserves old address
+PASS: Verification token is owner scoped
+PASS: Verification request rate limited
+PASS: Expired email token rejected
+PASS: Verification link renders confirmation form
+PASS: Email verification changes address through CSRF protected HTTP
+PASS: Email token single use
+PASS: Logout closes customer session
+PASS: All thirteen tables preserve existing rows after fixture cleanup
+83 customer module tests passed.

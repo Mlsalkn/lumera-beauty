@@ -1,0 +1,12 @@
+flowchart TB
+ Browser[HTML CSS JavaScript] --> Front[public/index.php Router]
+ Front --> Guards[CSRF RateLimiter AuthMiddleware RoleMiddleware]
+ Guards --> Controller[Controllers]
+ Controller --> View[resources/views]
+ Controller --> Service[Services / Models / Repositories]
+ Service --> PDO[PDO native prepared statements]
+ PDO --> DB[(MariaDB - 24 tables)]
+ Service --> Queue[mail_outbox encrypted queue]
+ Worker[bin/process-mail.php] --> Queue
+ Queue --> PHPMailer[PHPMailer]
+ PHPMailer --> SMTP[Configured SMTP server]

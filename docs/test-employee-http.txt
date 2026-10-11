@@ -1,0 +1,102 @@
+PASS: Guest denied employee
+PASS: Guest denied employee/appointments
+PASS: Guest denied employee/calendar
+PASS: Guest denied employee/leaves
+PASS: Guest denied employee/profile
+PASS: Guest denied employee/services
+PASS: Guest denied employee/performance
+PASS: Guest denied employee/notifications
+PASS: Guest denied admin/operations
+PASS: Employee page renders employee
+PASS: Employee page renders employee/appointments
+PASS: Employee page renders employee/calendar?mode=day
+PASS: Employee page renders employee/calendar?mode=week
+PASS: Employee page renders employee/calendar?mode=month
+PASS: Employee page renders employee/leaves
+PASS: Employee page renders employee/profile
+PASS: Employee page renders employee/services
+PASS: Employee page renders employee/performance
+PASS: Employee page renders employee/notifications
+PASS: Admin operations overview and settings render
+PASS: Employee denied other role panels
+PASS: Customer denied employee and operations
+PASS: CSRF required employee appointments/status
+PASS: CSRF required employee appointments/cancellation
+PASS: CSRF required employee leaves/request
+PASS: CSRF required employee profile/save
+PASS: CSRF required employee notifications/read
+PASS: CSRF required operations permissions
+PASS: Employee denied admin mutation permissions
+PASS: CSRF required operations breaks/add
+PASS: Employee denied admin mutation breaks/add
+PASS: CSRF required operations breaks/remove
+PASS: Employee denied admin mutation breaks/remove
+PASS: CSRF required operations leaves/review
+PASS: Employee denied admin mutation leaves/review
+PASS: CSRF required operations cancellations/review
+PASS: Employee denied admin mutation cancellations/review
+PASS: Customer note rendered with XSS escaping
+PASS: Foreign employee appointment detail denied
+PASS: Foreign employee status denied
+PASS: Foreign employee cancellation request denied
+PASS: Appointment list excludes other employee booking
+PASS: Date and status filters work
+PASS: Malformed date and calendar mode rejected
+PASS: Assignment notification reaches employee
+PASS: Foreign employee notification denied
+PASS: Employee notification read persists
+PASS: Confirm permission denied by default
+PASS: Admin grants employee confirmation permission
+PASS: Employee confirms assigned appointment over HTTP
+PASS: Employee confirmation notifies customer
+PASS: Future appointment cannot complete
+PASS: Employee cannot cancel directly
+PASS: Cancellation request does not silently cancel booking
+PASS: Duplicate pending cancellation rejected
+PASS: Admin rejection keeps booking intact
+PASS: Admin cancellation approval is atomic with status change
+PASS: Cancellation decision notification reaches employee
+PASS: Reviewed cancellation cannot be replayed
+PASS: Employee leave ignores injected employee id
+PASS: Pending leave does not block availability
+PASS: Admin sees explicit conflicts and escaped reason
+PASS: Conflicting leave cannot silently approve
+PASS: Conflicting appointment is not auto cancelled
+PASS: Resolved leave approves into shared employee_leaves
+PASS: Approved leave blocks full interval and allows adjacent service
+PASS: Customer/admin engine rejects approved leave slot
+PASS: Leave result notification persists
+PASS: Reviewed leave cannot be replayed
+PASS: Overlapping leave request rejected
+PASS: Past leave request rejected
+PASS: Leave rejection requires explanation
+PASS: Admin rejects leave with persisted explanation
+PASS: Admin creates recurring break
+PASS: Break blocks full service duration in shared availability
+PASS: Booking transaction rejects recurring break
+PASS: Break outside working hours rejected
+PASS: Overlapping recurring break rejected
+PASS: Break cannot strand an active booking
+PASS: Calendar computes actual free intervals excluding cancelled bookings
+PASS: Weekly and monthly calendar day boundaries correct
+PASS: Approved leave visible in employee calendar
+PASS: Working plan cannot exclude existing break
+PASS: Removing break restores availability
+PASS: Employee profile cannot change another employee role title services hours email
+PASS: Employee biography escaped
+PASS: Employee photo passes secure upload and is served
+PASS: Executable employee photo rejected
+PASS: Elapsed confirmed procedure completes through employee HTTP
+PASS: Employee performance sums only completed price snapshots
+PASS: Employee and admin performance share real data
+PASS: Completed appointment cannot be reopened
+PASS: Permission revocation preserves ownership enforcement
+PASS: Revoked cancellation request permission enforced
+PASS: Concurrent leave/booking worker returns normally
+PASS: Concurrent leave/booking worker returns normally
+PASS: Leave approval and overlapping booking cannot both win
+PASS: Real database contains no booking during approved race leave
+PASS: Inactive employee profile denied despite active user
+PASS: Employee logout closes session
+PASS: All seventeen tables preserve pre-existing rows after fixture cleanup
+101 employee operations tests passed.

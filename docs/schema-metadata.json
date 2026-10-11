@@ -1,0 +1,1760 @@
+{
+    "tables": {
+        "appointment_cancellation_requests": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "appointment_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reason",
+                "COLUMN_TYPE": "varchar(1000)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('pending','approved','rejected')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'pending'",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reviewer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reviewed_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "response",
+                "COLUMN_TYPE": "varchar(1000)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "appointment_status_history": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "appointment_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "actor_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "event",
+                "COLUMN_TYPE": "varchar(30)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "old_status",
+                "COLUMN_TYPE": "varchar(12)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "new_status",
+                "COLUMN_TYPE": "varchar(12)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "old_start_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "new_start_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "appointments": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "service_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "start_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "end_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('pending','confirmed','completed','cancelled')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'pending'",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "service_price",
+                "COLUMN_TYPE": "decimal(10,2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "customer_note",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "audit_events": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "actor_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "action",
+                "COLUMN_TYPE": "varchar(80)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "target_type",
+                "COLUMN_TYPE": "varchar(40)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "target_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "outcome",
+                "COLUMN_TYPE": "enum('success','denied','failure')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "auth_tokens": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "purpose",
+                "COLUMN_TYPE": "enum('verify','reset')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "token_hash",
+                "COLUMN_TYPE": "char(64)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "email_snapshot",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "expires_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "used_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "customer_preferences": [
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "appointment_notifications",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "email_change_requests": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "old_email",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "new_email",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "token_hash",
+                "COLUMN_TYPE": "char(64)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "expires_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "employee_breaks": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "weekday",
+                "COLUMN_TYPE": "tinyint(3) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "start_time",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "end_time",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reason",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "employee_leave_requests": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "start_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "end_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reason",
+                "COLUMN_TYPE": "varchar(1000)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('pending','approved','rejected')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'pending'",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reviewer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reviewed_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "response",
+                "COLUMN_TYPE": "varchar(1000)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "approved_leave_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "employee_leaves": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "start_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "end_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "reason",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "employee_permissions": [
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "can_confirm",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "0",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "can_complete",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "can_request_cancel",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "employee_services": [
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "service_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            }
+        ],
+        "employees": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "title",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "bio",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "photo_path",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "is_active",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "favorites": [
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "service_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "mail_outbox": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "appointment_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "dedupe_key",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "event",
+                "COLUMN_TYPE": "varchar(40)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "payload",
+                "COLUMN_TYPE": "mediumtext",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('pending','sent','failed','skipped')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'pending'",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "attempts",
+                "COLUMN_TYPE": "smallint(5) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "0",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "next_attempt_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "sent_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "last_error",
+                "COLUMN_TYPE": "varchar(80)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "notifications": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "appointment_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "event",
+                "COLUMN_TYPE": "varchar(30)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "message",
+                "COLUMN_TYPE": "varchar(500)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "read_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "reviews": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "appointment_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "customer_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "rating",
+                "COLUMN_TYPE": "tinyint(3) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "comment",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "is_visible",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "sample_content": [
+            {
+                "COLUMN_NAME": "entity_type",
+                "COLUMN_TYPE": "enum('service','employee')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "seed_key",
+                "COLUMN_TYPE": "varchar(60)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "entity_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "services": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "name",
+                "COLUMN_TYPE": "varchar(150)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "description",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "category",
+                "COLUMN_TYPE": "varchar(100)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "duration_minutes",
+                "COLUMN_TYPE": "smallint(5) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "price",
+                "COLUMN_TYPE": "decimal(10,2)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "is_active",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "image_path",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "support_tickets": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "reference",
+                "COLUMN_TYPE": "char(24)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "name",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "email",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "subject",
+                "COLUMN_TYPE": "varchar(160)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "message",
+                "COLUMN_TYPE": "text",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "status",
+                "COLUMN_TYPE": "enum('open','in_progress','resolved')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'open'",
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "updated_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": "on update current_timestamp()"
+            }
+        ],
+        "system_settings": [
+            {
+                "COLUMN_NAME": "setting_key",
+                "COLUMN_TYPE": "varchar(80)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "setting_value",
+                "COLUMN_TYPE": "varchar(500)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "updated_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": "on update current_timestamp()"
+            }
+        ],
+        "user_security": [
+            {
+                "COLUMN_NAME": "user_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "email_verified_at",
+                "COLUMN_TYPE": "datetime",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "users": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "name",
+                "COLUMN_TYPE": "varchar(120)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "email",
+                "COLUMN_TYPE": "varchar(190)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "UNI",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "password_hash",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "phone",
+                "COLUMN_TYPE": "varchar(25)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "role",
+                "COLUMN_TYPE": "enum('CUSTOMER','EMPLOYEE','ADMIN')",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "'CUSTOMER'",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "is_active",
+                "COLUMN_TYPE": "tinyint(1)",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "created_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "updated_at",
+                "COLUMN_TYPE": "timestamp",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "current_timestamp()",
+                "COLUMN_KEY": "",
+                "EXTRA": "on update current_timestamp()"
+            },
+            {
+                "COLUMN_NAME": "first_name",
+                "COLUMN_TYPE": "varchar(60)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "last_name",
+                "COLUMN_TYPE": "varchar(60)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "photo_path",
+                "COLUMN_TYPE": "varchar(255)",
+                "IS_NULLABLE": "YES",
+                "COLUMN_DEFAULT": "NULL",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "auth_version",
+                "COLUMN_TYPE": "int(10) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": "1",
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ],
+        "working_hours": [
+            {
+                "COLUMN_NAME": "id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "PRI",
+                "EXTRA": "auto_increment"
+            },
+            {
+                "COLUMN_NAME": "employee_id",
+                "COLUMN_TYPE": "bigint(20) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "MUL",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "weekday",
+                "COLUMN_TYPE": "tinyint(3) unsigned",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "start_time",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            },
+            {
+                "COLUMN_NAME": "end_time",
+                "COLUMN_TYPE": "time",
+                "IS_NULLABLE": "NO",
+                "COLUMN_DEFAULT": null,
+                "COLUMN_KEY": "",
+                "EXTRA": ""
+            }
+        ]
+    },
+    "foreign_keys": [
+        {
+            "TABLE_NAME": "appointments",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointments_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "appointments",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointments_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "appointments",
+            "COLUMN_NAME": "service_id",
+            "REFERENCED_TABLE_NAME": "services",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointments_ibfk_3"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "COLUMN_NAME": "appointment_id",
+            "REFERENCED_TABLE_NAME": "appointments",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "COLUMN_NAME": "reviewer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_3"
+        },
+        {
+            "TABLE_NAME": "appointment_status_history",
+            "COLUMN_NAME": "appointment_id",
+            "REFERENCED_TABLE_NAME": "appointments",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointment_status_history_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "appointment_status_history",
+            "COLUMN_NAME": "actor_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "appointment_status_history_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "audit_events",
+            "COLUMN_NAME": "actor_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "audit_events_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "auth_tokens",
+            "COLUMN_NAME": "user_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "auth_tokens_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "customer_preferences",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "customer_preferences_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "email_change_requests",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "email_change_requests_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employees",
+            "COLUMN_NAME": "user_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employees_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_breaks",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_breaks_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_leaves",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_leaves_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "COLUMN_NAME": "reviewer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "COLUMN_NAME": "approved_leave_id",
+            "REFERENCED_TABLE_NAME": "employee_leaves",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_3"
+        },
+        {
+            "TABLE_NAME": "employee_permissions",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_permissions_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_services",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_services_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "employee_services",
+            "COLUMN_NAME": "service_id",
+            "REFERENCED_TABLE_NAME": "services",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "employee_services_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "favorites",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "favorites_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "favorites",
+            "COLUMN_NAME": "service_id",
+            "REFERENCED_TABLE_NAME": "services",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "favorites_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "mail_outbox",
+            "COLUMN_NAME": "user_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "mail_outbox_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "mail_outbox",
+            "COLUMN_NAME": "appointment_id",
+            "REFERENCED_TABLE_NAME": "appointments",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "mail_outbox_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "notifications",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "notifications_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "notifications",
+            "COLUMN_NAME": "appointment_id",
+            "REFERENCED_TABLE_NAME": "appointments",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "notifications_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "reviews",
+            "COLUMN_NAME": "appointment_id",
+            "REFERENCED_TABLE_NAME": "appointments",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "reviews_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "reviews",
+            "COLUMN_NAME": "customer_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "reviews_ibfk_2"
+        },
+        {
+            "TABLE_NAME": "support_tickets",
+            "COLUMN_NAME": "user_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "support_user_fk"
+        },
+        {
+            "TABLE_NAME": "user_security",
+            "COLUMN_NAME": "user_id",
+            "REFERENCED_TABLE_NAME": "users",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "user_security_ibfk_1"
+        },
+        {
+            "TABLE_NAME": "working_hours",
+            "COLUMN_NAME": "employee_id",
+            "REFERENCED_TABLE_NAME": "employees",
+            "REFERENCED_COLUMN_NAME": "id",
+            "CONSTRAINT_NAME": "working_hours_ibfk_1"
+        }
+    ],
+    "rules": [
+        {
+            "TABLE_NAME": "appointments",
+            "CONSTRAINT_NAME": "appointments_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointments",
+            "CONSTRAINT_NAME": "appointments_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointments",
+            "CONSTRAINT_NAME": "appointments_ibfk_3",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointment_cancellation_requests",
+            "CONSTRAINT_NAME": "appointment_cancellation_requests_ibfk_3",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointment_status_history",
+            "CONSTRAINT_NAME": "appointment_status_history_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "appointment_status_history",
+            "CONSTRAINT_NAME": "appointment_status_history_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "audit_events",
+            "CONSTRAINT_NAME": "audit_events_ibfk_1",
+            "DELETE_RULE": "SET NULL",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "auth_tokens",
+            "CONSTRAINT_NAME": "auth_tokens_ibfk_1",
+            "DELETE_RULE": "CASCADE",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "customer_preferences",
+            "CONSTRAINT_NAME": "customer_preferences_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "email_change_requests",
+            "CONSTRAINT_NAME": "email_change_requests_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employees",
+            "CONSTRAINT_NAME": "employees_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_breaks",
+            "CONSTRAINT_NAME": "employee_breaks_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_leaves",
+            "CONSTRAINT_NAME": "employee_leaves_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_leave_requests",
+            "CONSTRAINT_NAME": "employee_leave_requests_ibfk_3",
+            "DELETE_RULE": "SET NULL",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_permissions",
+            "CONSTRAINT_NAME": "employee_permissions_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_services",
+            "CONSTRAINT_NAME": "employee_services_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "employee_services",
+            "CONSTRAINT_NAME": "employee_services_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "favorites",
+            "CONSTRAINT_NAME": "favorites_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "favorites",
+            "CONSTRAINT_NAME": "favorites_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "mail_outbox",
+            "CONSTRAINT_NAME": "mail_outbox_ibfk_1",
+            "DELETE_RULE": "CASCADE",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "mail_outbox",
+            "CONSTRAINT_NAME": "mail_outbox_ibfk_2",
+            "DELETE_RULE": "CASCADE",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "notifications",
+            "CONSTRAINT_NAME": "notifications_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "notifications",
+            "CONSTRAINT_NAME": "notifications_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "reviews",
+            "CONSTRAINT_NAME": "reviews_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "reviews",
+            "CONSTRAINT_NAME": "reviews_ibfk_2",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "support_tickets",
+            "CONSTRAINT_NAME": "support_user_fk",
+            "DELETE_RULE": "SET NULL",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "user_security",
+            "CONSTRAINT_NAME": "user_security_ibfk_1",
+            "DELETE_RULE": "CASCADE",
+            "UPDATE_RULE": "RESTRICT"
+        },
+        {
+            "TABLE_NAME": "working_hours",
+            "CONSTRAINT_NAME": "working_hours_ibfk_1",
+            "DELETE_RULE": "RESTRICT",
+            "UPDATE_RULE": "RESTRICT"
+        }
+    ]
+}

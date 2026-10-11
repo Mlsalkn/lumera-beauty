@@ -1,0 +1,102 @@
+PASS: Guest denied admin
+PASS: Guest denied admin/services
+PASS: Guest denied admin/employees
+PASS: Guest denied admin/customers
+PASS: Guest denied admin/appointments
+PASS: Guest denied admin/calendar
+PASS: Guest denied admin/reports
+PASS: Guest denied admin/availability
+PASS: Admin page renders admin
+PASS: Admin page renders admin/services
+PASS: Admin page renders admin/employees
+PASS: Admin page renders admin/customers
+PASS: Admin page renders admin/appointments
+PASS: Admin page renders admin/calendar
+PASS: Admin page renders admin/reports
+PASS: CSRF required services/save
+PASS: CSRF required services/delete
+PASS: CSRF required employees/save
+PASS: CSRF required employees/leave
+PASS: CSRF required employees/leave/remove
+PASS: CSRF required customers/status
+PASS: CSRF required appointments/create
+PASS: CSRF required appointments/status
+PASS: GET mutation blocked
+PASS: Invalid service handled
+PASS: Invalid service writes no row
+PASS: Service with image created through HTTP
+PASS: Uploaded image publicly served
+PASS: Stored description escaped
+PASS: Service edit persists price
+PASS: Executable upload rejected without replacing image
+PASS: Employee and secure account created
+PASS: Employee password hashed
+PASS: Schedule and service assignment persisted
+PASS: Employee edit without password preserves account
+PASS: Invalid service assignment rolls employee transaction back
+PASS: Failed employee creation leaves no orphan account
+PASS: Customer search and active filter
+PASS: Customer detail shows contact
+PASS: Availability respects full service duration
+PASS: Appointment created with computed end
+PASS: Booking stores price snapshot and pending status
+PASS: Overlapping interval rejected
+PASS: Pending appointment approved
+PASS: Future appointment cannot complete
+PASS: Leave overlapping booking rejected
+PASS: Schedule edit cannot strand existing booking
+PASS: Cannot remove service assigned to active booking
+PASS: Cannot deactivate employee with active booking
+PASS: Appointment cancelled
+PASS: Cancelled appointment releases interval
+PASS: Cancelled appointment cannot resurrect
+PASS: Employee leave saved
+PASS: Leave blocks complete interval but allows adjacent bookings
+PASS: Booking during leave rejected
+PASS: Leave removal works
+PASS: Customer deactivation works
+PASS: Inactive customer cannot book
+PASS: Customer status cannot deactivate administrator
+PASS: Customer reactivation works
+PASS: Concurrent booking worker returns normally
+PASS: Concurrent booking worker returns normally
+PASS: Concurrent booking worker returns normally
+PASS: Concurrent requests create exactly one appointment
+PASS: No double booking in real database
+PASS: Past booking rejected
+PASS: Booking cannot extend beyond closing
+PASS: Adjacent appointment boundary accepted
+PASS: Price and duration edits preserve historical booking snapshot
+PASS: Calendar renders actual booking
+PASS: Customer history connected to appointments
+PASS: Elapsed confirmed appointment completes
+PASS: Reports sum only completed price snapshots
+PASS: Reports render with accurate estimate label
+PASS: Referenced service is deactivated rather than deleted
+PASS: Completed appointment history survives service deletion request
+PASS: Inactive service cannot book
+PASS: Unreferenced service safely deleted
+PASS: Invalid input handled admin/customers?id=213
+PASS: Invalid input handled admin/reports?from=2026-02-30
+PASS: Invalid input handled admin/calendar?month=invalid
+PASS: Invalid input handled admin/availability?employee_id[]=1
+PASS: Customer denied admin
+PASS: Customer denied admin/services
+PASS: Customer denied admin/employees
+PASS: Customer denied admin/customers
+PASS: Customer denied admin/appointments
+PASS: Customer denied admin/calendar
+PASS: Customer denied admin/reports
+PASS: Customer denied admin/availability
+PASS: Non-admin write forbidden even with valid CSRF
+PASS: Employee denied admin
+PASS: Employee denied admin/services
+PASS: Employee denied admin/employees
+PASS: Employee denied admin/customers
+PASS: Employee denied admin/appointments
+PASS: Employee denied admin/calendar
+PASS: Employee denied admin/reports
+PASS: Employee denied admin/availability
+PASS: Employee cannot create admin booking
+PASS: All pre-existing database rows preserved
+101 admin module tests passed.

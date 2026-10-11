@@ -1,0 +1,30 @@
+{
+  "name": "lumera/beauty",
+  "description": "Luméra Beauty native PHP MVC application",
+  "type": "project",
+  "require": {
+    "php": "^8.2",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "ext-mbstring": "*",
+    "phpmailer/phpmailer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/Helpers/functions.php"
+    ]
+  },
+  "scripts": {
+    "test": "@php tests/run.php",
+    "diagnose": "@php bin/diagnose.php"
+  },
+  "authors": [
+    {
+      "name": "Melisa Alkan",
+      "email": "alkanmelisa12@gmail.com"
+    }
+  ]
+}

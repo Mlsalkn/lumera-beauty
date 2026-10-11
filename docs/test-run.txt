@@ -1,0 +1,33 @@
+PASS: XSS escaping
+PASS: Environment fallback
+PASS: PSR-4 controller autoload
+PASS: Subdirectory routing and query string
+PASS: 404 response
+PASS: Unsupported method returns 405
+PASS: Home view renders
+PASS: View traversal blocked
+PASS: No assumed database credentials
+PASS: Valid registration fields accepted
+PASS: Array injection rejected
+PASS: Invalid name/email and password mismatch rejected
+PASS: Whitespace-only password rejected
+PASS: Short password rejected
+PASS: Bcrypt byte limit enforced
+PASS: Null bytes rejected
+PASS: UTF-8 password supported
+PASS: Multibyte password byte limit enforced
+PASS: Password hash and verify roundtrip
+PASS: Wrong password rejected
+PASS: Current password hash policy recognized
+PASS: Valid login input accepted
+PASS: Malformed login rejected
+PASS: Session cookie and strict-mode settings
+PASS: Valid CSRF token accepted
+PASS: Token stable during session
+PASS: Missing/malformed/wrong CSRF token rejected
+PASS: Escaped CSRF hidden field
+PASS: Session ID rotation preserves state
+PASS: Old CSRF token invalid after session rotation
+PASS: Logout session destruction
+PASS: CSRF requires active session
+32 test passed.

@@ -1,0 +1,17 @@
+flowchart TD
+ Login[Müşteri girişi ve yetki kontrolü] --> Select[Hizmet uzman tarih saat]
+ Select --> Availability[Çalışma saatleri / molalar / onaylı izinler]
+ Availability --> Preview[10 dakikalık tek kullanımlık özet]
+ Preview --> Lock[Transaction / çalışan FOR UPDATE]
+ Lock --> Check{Aktiflik süre fiyat çakışma uygun mu?}
+ Check -- Hayır --> Reject[İşlemi reddet ve anlaşılır hata]
+ Check -- Evet --> Pending[pending / snapshot / bildirim / geçmiş]
+ Pending --> Confirm[Yetkili onayı confirmed]
+ Confirm --> Done[Bitiş geçtiyse completed]
+ Pending --> Cancel[Yetkili iptali cancelled]
+ Confirm --> Cancel
+ Pending --> Change[Kurallara uygun tarih değişikliği]
+ Confirm --> Change
+ Change --> Lock
+ Done --> Review[Sahibinin değerlendirmesi]
+ Review --> Moderate[Yönetici yayınlar / gizler]

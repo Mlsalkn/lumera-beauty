@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+actor "Müşteri" as Customer
+actor "Çalışan" as Employee
+actor "Yönetici" as Admin
+rectangle "Luméra Beauty" {
+usecase "Kayıt / giriş / güvenli çıkış" as UC1
+Customer -- UC1
+usecase "Profil ve şifre / e-posta işlemleri" as UC2
+Customer -- UC2
+usecase "Müsaitlik ve online randevu" as UC3
+Customer -- UC3
+usecase "Randevuyu gör / değiştir / iptal" as UC4
+Customer -- UC4
+usecase "Favoriler ve bildirimler" as UC5
+Customer -- UC5
+usecase "Tamamlanan işlemi değerlendir" as UC6
+Customer -- UC6
+usecase "Giriş ve kişisel dashboard" as UC7
+Employee -- UC7
+usecase "Kendi randevularını filtrele" as UC8
+Employee -- UC8
+usecase "İzin verilen durum geçişleri" as UC9
+Employee -- UC9
+usecase "Gün / hafta / ay takvimi" as UC10
+Employee -- UC10
+usecase "İzin ve iptal talebi" as UC11
+Employee -- UC11
+usecase "Sınırlı profil ve performans" as UC12
+Employee -- UC12
+usecase "Dashboard ve tahmini tutar raporu" as UC13
+Admin -- UC13
+usecase "Hizmet / çalışan / müşteri yönetimi" as UC14
+Admin -- UC14
+usecase "Randevu ve takvim yönetimi" as UC15
+Admin -- UC15
+usecase "Saat / mola / hizmet ataması" as UC16
+Admin -- UC16
+usecase "İzin ve iptal talebi kararı" as UC17
+Admin -- UC17
+usecase "Ayarlar ve yorum moderasyonu" as UC18
+Admin -- UC18
+}
+@enduml

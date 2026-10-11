@@ -1,0 +1,70 @@
+PASS: Correct database
+PASS: Native prepared statements
+PASS: Dedicated application account
+PASS: Application account has only CRUD schema privileges
+PASS: user_security InnoDB
+PASS: auth_tokens InnoDB
+PASS: mail_outbox InnoDB
+PASS: system_settings InnoDB
+PASS: audit_events InnoDB
+PASS: users InnoDB / UTF8MB4
+PASS: employees InnoDB / UTF8MB4
+PASS: services InnoDB / UTF8MB4
+PASS: employee_services InnoDB / UTF8MB4
+PASS: working_hours InnoDB / UTF8MB4
+PASS: appointments InnoDB / UTF8MB4
+PASS: reviews InnoDB / UTF8MB4
+PASS: employee_leaves InnoDB / UTF8MB4
+PASS: favorites InnoDB / UTF8MB4
+PASS: notifications InnoDB / UTF8MB4
+PASS: customer_preferences InnoDB / UTF8MB4
+PASS: appointment_status_history InnoDB / UTF8MB4
+PASS: email_change_requests InnoDB / UTF8MB4
+PASS: employee_permissions InnoDB / UTF8MB4
+PASS: employee_breaks InnoDB / UTF8MB4
+PASS: employee_leave_requests InnoDB / UTF8MB4
+PASS: appointment_cancellation_requests InnoDB / UTF8MB4
+PASS: Foreign key user_security.user_id>users.id
+PASS: Foreign key auth_tokens.user_id>users.id
+PASS: Foreign key mail_outbox.user_id>users.id
+PASS: Foreign key mail_outbox.appointment_id>appointments.id
+PASS: Foreign key audit_events.actor_id>users.id
+PASS: Foreign key employees.user_id>users.id
+PASS: Foreign key employee_services.employee_id>employees.id
+PASS: Foreign key employee_services.service_id>services.id
+PASS: Foreign key working_hours.employee_id>employees.id
+PASS: Foreign key appointments.customer_id>users.id
+PASS: Foreign key appointments.employee_id>employees.id
+PASS: Foreign key appointments.service_id>services.id
+PASS: Foreign key reviews.appointment_id>appointments.id
+PASS: Foreign key reviews.customer_id>users.id
+PASS: Foreign key employee_leaves.employee_id>employees.id
+PASS: Service image column exists
+PASS: users.first_name exists
+PASS: users.last_name exists
+PASS: users.photo_path exists
+PASS: users.auth_version exists
+PASS: appointments.customer_note exists
+PASS: Foreign key favorites.customer_id>users.id
+PASS: Foreign key favorites.service_id>services.id
+PASS: Foreign key notifications.customer_id>users.id
+PASS: Foreign key notifications.appointment_id>appointments.id
+PASS: Foreign key customer_preferences.customer_id>users.id
+PASS: Foreign key appointment_status_history.appointment_id>appointments.id
+PASS: Foreign key appointment_status_history.actor_id>users.id
+PASS: Foreign key email_change_requests.customer_id>users.id
+PASS: Foreign key employee_permissions.employee_id>employees.id
+PASS: Foreign key employee_breaks.employee_id>employees.id
+PASS: Foreign key employee_leave_requests.employee_id>employees.id
+PASS: Foreign key employee_leave_requests.reviewer_id>users.id
+PASS: Foreign key employee_leave_requests.approved_leave_id>employee_leaves.id
+PASS: Foreign key appointment_cancellation_requests.employee_id>employees.id
+PASS: Foreign key appointment_cancellation_requests.appointment_id>appointments.id
+PASS: Foreign key appointment_cancellation_requests.reviewer_id>users.id
+PASS: Valid catalog data for original sample Cilt Bakımı
+PASS: Valid catalog data for original sample Kaş Tasarımı
+PASS: Valid catalog data for original sample Kirpik Lifting
+PASS: Valid catalog data for original sample Manikür
+PASS: Valid catalog data for original sample Profesyonel Makyaj
+PASS: Accounts contain valid password hashes
+69 database tests passed (read-only).

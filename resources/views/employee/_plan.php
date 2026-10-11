@@ -1,0 +1,4 @@
+<?php if(!$plan['hours']): ?><p class="muted">Çalışma günü değil.</p><?php endif ?><?php foreach($plan['hours']as$h): ?><p><strong>Çalışma</strong> <?= e(substr($h['start_time'],0,5).'–'.substr($h['end_time'],0,5)) ?></p><?php endforeach ?>
+<?php foreach($plan['breaks']as$b): ?><p><span class="status-pill">Mola</span> <?= e(substr($b['start_time'],0,5).'–'.substr($b['end_time'],0,5)) ?> · <?= e($b['reason']) ?></p><?php endforeach ?>
+<?php foreach($plan['leaves']as$l): ?><p><span class="status-pill">İzin</span> <?= e(date('d.m H:i',strtotime($l['start_at'])).'–'.date('d.m H:i',strtotime($l['end_at']))) ?><br><?= e($l['reason']??'') ?></p><?php endforeach ?>
+<p class="muted mb-2">Planlanan boş aralıklar (hizmet süresi ayrıca değerlendirilir)</p><div class="free-ranges"><?php foreach($plan['free']as$f): ?><span><?= e($f['start'].'–'.$f['end']) ?></span><?php endforeach ?><?php if(!$plan['free']): ?><span>Boş aralık yok</span><?php endif ?></div>

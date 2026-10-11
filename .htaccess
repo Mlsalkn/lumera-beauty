@@ -1,0 +1,12 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /lumera-beauty/
+# Explicit URL paths prevent Windows filesystem paths in Location headers.
+RewriteRule ^$ /lumera-beauty/public/ [R=302,L]
+RewriteRule ^employee/(appointments(?:/detail|/status|/cancellation)?|calendar|leaves(?:/request)?|profile(?:/save)?|services|performance|notifications(?:/read)?)/?$ /lumera-beauty/public/employee/$1 [R=307,L]
+RewriteRule ^admin/operations(?:/(leaves/review|cancellations/review|permissions|breaks/add|breaks/remove))?/?$ /lumera-beauty/public/admin/operations/$1 [R=307,L]
+RewriteRule ^customer/(reviews(?:/save)?|appointments(?:/detail|/cancel)?|favorites(?:/save)?|notifications(?:/read)?|profile(?:/save|/password|/email)?|book(?:/preview|/confirm)?|email/verify)/?$ /lumera-beauty/public/customer/$1 [R=307,L]
+RewriteRule ^admin/(support(?:/status)?|reviews(?:/visibility)?|settings(?:/save)?|services(?:/save|/delete)?|employees(?:/save|/leave(?:/remove)?)?|customers(?:/status)?|appointments(?:/create|/status)?|calendar|reports|availability)/?$ /lumera-beauty/public/admin/$1 [R=307,L]
+# Only application routes get aliases; 307 preserves POST bodies and CSRF.
+RewriteRule ^(services|services/detail|experts|about|contact|contact/support|support|reviews|forgot-password|reset-password|verify-email|resend-verification|login|register|logout|customer|employee|admin)/?$ /lumera-beauty/public/$1 [R=307,L]
+RewriteRule ^(?!public(?:/|$)). - [F,L]

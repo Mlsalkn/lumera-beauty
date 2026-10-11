@@ -1,0 +1,56 @@
+[
+  {
+    "documentWidth": 1425,
+    "role": "admin",
+    "width": 1440
+  },
+  {
+    "documentWidth": 753,
+    "role": "admin",
+    "width": 768
+  },
+  {
+    "documentWidth": 375,
+    "role": "admin",
+    "width": 390
+  },
+  {
+    "documentWidth": 1425,
+    "role": "employee",
+    "width": 1440
+  },
+  {
+    "documentWidth": 753,
+    "role": "employee",
+    "width": 768
+  },
+  {
+    "documentWidth": 375,
+    "role": "employee",
+    "width": 390
+  },
+  {
+    "role": "customer",
+    "width": 1440,
+    "height": 1000,
+    "document": 1425,
+    "overflow": false,
+    "viewport": 1440
+  },
+  {
+    "role": "customer",
+    "width": 768,
+    "height": 1024,
+    "document": 753,
+    "overflow": false,
+    "viewport": 768
+  },
+  {
+    "role": "customer",
+    "width": 390,
+    "height": 844,
+    "document": 375,
+    "overflow": false,
+    "viewport": 390
+  }
+]

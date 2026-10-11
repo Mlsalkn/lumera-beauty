@@ -1,0 +1,1 @@
+<section class="container py-5 my-5"><p class="eyebrow">LUMÉRA BEAUTY</p><h1><?= e($title) ?></h1><p class="lead"><?= e($message) ?></p><a class="btn btn-lumera" href="<?= e(url()) ?>">Ana sayfaya dön</a></section>

@@ -1,0 +1,12 @@
+<?php
+$nav=['dashboard'=>['admin','Genel bakış','bi-grid'],'appointments'=>['admin/appointments','Randevular','bi-calendar2-check'],'calendar'=>['admin/calendar','Takvim','bi-calendar3'],'services'=>['admin/services','Hizmetler','bi-stars'],'employees'=>['admin/employees','Çalışanlar','bi-people'],'customers'=>['admin/customers','Müşteriler','bi-person-heart'],'operations'=>['admin/operations','Ekip operasyonları','bi-clipboard-check'],'reviews'=>['admin/reviews','Değerlendirmeler','bi-chat-square-text'],'settings'=>['admin/settings','Sistem ayarları','bi-gear'],'reports'=>['admin/reports','Raporlar','bi-bar-chart'],'support'=>['admin/support','Destek talepleri','bi-chat-dots']];
+$notice=$_SESSION['admin_notice'] ?? null; $error=$_SESSION['admin_error'] ?? null; $old=$_SESSION['admin_old'] ?? null;
+unset($_SESSION['admin_notice'],$_SESSION['admin_error'],$_SESSION['admin_old']);
+$oldInput=is_array($old) && ($old['action'] ?? '') === ($page==='services' ? 'service-save' : ($page==='employees' ? 'employee-save' : 'appointment-create')) ? $old['input'] : [];
+$statusLabels=['pending'=>'Bekliyor','confirmed'=>'Onaylandı','completed'=>'Tamamlandı','cancelled'=>'İptal'];
+$money=static fn($value): string => number_format((float)$value,2,',','.').' ₺';
+?>
+<link rel="stylesheet" href="<?= e(url('assets/css/admin-refresh.css?v=20261011')) ?>">
+<section class="admin-shell container-fluid"><div class="row g-4"><aside class="col-xl-2 col-lg-3"><div class="admin-nav"><p class="eyebrow">LUMÉRA YÖNETİM</p><nav aria-label="Yönetim menüsü"><?php foreach($nav as $key=>[$path,$label,$icon]): ?><a class="<?= $page===$key ? 'is-current' : '' ?>" href="<?= e(url($path)) ?>" <?= $page===$key ? 'aria-current="page"' : '' ?>><i class="bi <?= e($icon) ?>" aria-hidden="true"></i><?= e($label) ?></a><?php endforeach ?></nav><form action="<?= e(url('logout')) ?>" method="post" class="mt-4"><?= App\Core\Csrf::field() ?><button type="submit" class="btn btn-outline-dark w-100">Güvenli çıkış</button></form></div></aside>
+<div class="col-xl-10 col-lg-9"><header class="admin-heading"><div><p class="eyebrow">LUMÉRA · YÖNETİM PANELİ</p><h1><?= e($nav[$page][1]) ?></h1></div><div class="admin-user"><i class="bi bi-person-circle" aria-hidden="true"></i><span><?= e($user['name']) ?><small>Yönetici</small></span></div></header>
+<?php if($notice): ?><div class="alert alert-success" role="status"><?= e($notice) ?></div><?php endif ?><?php if($error): ?><div class="alert alert-danger" role="alert"><?= e($error) ?></div><?php endif ?>
